@@ -24,13 +24,13 @@ export const aboutStats: SLAStat[] = [
 
 export const edgeLocations: EdgeLocation[] = [
   {
-    name: "Tokyo Edge",
-    latency: "12ms",
+    name: "Nepal",
+    latency: "3ms",
     status: "fast",
   },
   {
     name: "London Edge",
-    latency: "22ms",
+    latency: "20ms",
     status: "fast",
   },
 ];

@@ -18,14 +18,16 @@ function AboutContent() {
         Designed to be minimalist, engineered for reliability.
       </h2>
       <p className="text-muted-foreground leading-relaxed">
-        Chhoto was created out of a desire for clean sharing.
-        Traditional link shorteners are cluttered, slow, and pack
-        intrusive trackers. Chhoto removes the noise.
+        Chhoto was built to make sharing links simple, fast, and professional.
+        Instead of offering only URL shortening, it brings together branded
+        links, QR codes, analytics, and link management in one clean
+        platform—without unnecessary complexity.
       </p>
       <p className="text-muted-foreground leading-relaxed">
-        By focusing on lightning-fast response times, edge network
-        caching, and an intuitive responsive control hub, Chhoto gives
-        you full authority over your links.
+        By combining lightning-fast redirects, edge-powered performance, custom
+        branding, dynamic QR codes, detailed analytics, and an intuitive control
+        hub, Chhoto gives individuals, creators, and businesses complete control
+        over how their links are shared, tracked, and experienced.
       </p>
       <div className="flex items-center gap-4 pt-2">
         {aboutStats.map((stat, idx) => (
@@ -35,7 +37,10 @@ function AboutContent() {
               {stat.type === "pulse" ? (
                 <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
               ) : (
-                <Zap size={14} className={stat.highlightColor || "text-muted-foreground"} />
+                <Zap
+                  size={14}
+                  className={stat.highlightColor || "text-muted-foreground"}
+                />
               )}
               <span className="text-xs font-semibold text-muted-foreground">
                 {stat.label}
@@ -64,15 +69,15 @@ function InfrastructureCard() {
         </div>
         <h3 className="text-xl font-bold">Global Infrastructure</h3>
         <p className="text-muted-foreground text-sm leading-relaxed">
-          Every short link is deployed to multiple edge locations
-          worldwide. Your users redirect instantly, no matter where they
-          click from.
+          Every short link is deployed to multiple edge locations worldwide.
+          Your users redirect instantly, no matter where they click from.
         </p>
         {edgeLocations.map((loc) => (
-          <div key={loc.name} className="bg-muted/50 p-4 rounded-xl border border-border/50 flex justify-between text-xs">
-            <span className="text-muted-foreground font-mono">
-              {loc.name}
-            </span>
+          <div
+            key={loc.name}
+            className="bg-muted/50 p-4 rounded-xl border border-border/50 flex justify-between text-xs"
+          >
+            <span className="text-muted-foreground font-mono">{loc.name}</span>
             <span className="text-green-500 font-bold font-mono">
               {loc.latency}
             </span>

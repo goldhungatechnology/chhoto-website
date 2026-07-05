@@ -25,7 +25,7 @@ export const pricingData: PricingPlan[] = [
   },
   {
     name: "Professional",
-    price: "$9",
+    price: "$0",
     frequency: "per month",
     description: "For creators, developers, and growing brands.",
     features: [
