@@ -16,14 +16,17 @@ export function NavControls({
   onToggle,
   onCtaClick,
 }: NavControlsProps) {
-  const isLoggedIn = true;
+  const REGISTER_ROUTE = "https://auth.chhoto.tech/register";
+  const APP_ROUTE = "https://app.chhoto.tech/dashboard";
+
+  const isLoggedIn = false;
   return (
     <div className="flex items-center gap-3">
       <ThemeToggle />
 
       {isLoggedIn ? (
         <Link
-          href="#dashboard"
+          href={APP_ROUTE}
           onClick={onCtaClick}
           className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold px-4 py-2 rounded-xl hover:bg-primary/95 active:scale-95 transition-all text-xs shadow-md shadow-primary/10 cursor-pointer shrink-0 animate-none"
         >
@@ -31,7 +34,7 @@ export function NavControls({
         </Link>
       ) : (
         <Link
-          href="#home"
+          href={REGISTER_ROUTE}
           onClick={onCtaClick}
           className="inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold px-4 py-2 rounded-xl hover:bg-primary/95 active:scale-95 transition-all text-xs shadow-md shadow-primary/10 cursor-pointer shrink-0 animate-none"
         >
