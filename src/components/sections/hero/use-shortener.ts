@@ -10,7 +10,7 @@ export interface ShortenedLink {
 }
 
 export function useShortener() {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, isLoading } = useAuth();
   const autoCopy = true;
   const [inputUrl, setInputUrl] = useState("");
   const [shortenedUrls, setShortenedUrls] = useState<ShortenedLink[]>([
@@ -30,7 +30,7 @@ export function useShortener() {
 
   const handleShorten = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputUrl) return;
+    if (!inputUrl || isLoading) return;
 
     setIsShortening(true);
     if (isLoggedIn) {
@@ -60,6 +60,7 @@ export function useShortener() {
     const pastedText = e.clipboardData.getData("text");
     if (isLink(pastedText)) {
       e.preventDefault(); // Cancel standard paste to handle redirect
+      if (isLoading) return;
       if (isLoggedIn) {
         window.location.href = "https://app.chhoto.tech/links";
       } else {
@@ -73,6 +74,7 @@ export function useShortener() {
     setInputUrl,
     shortenedUrls,
     isShortening,
+    isLoading,
     copiedIndex,
     handleShorten,
     handleCopy,

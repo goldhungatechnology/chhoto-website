@@ -25,7 +25,9 @@ export function NavControls({
     <div className="flex items-center gap-3">
       <ThemeToggle />
 
-      {isLoggedIn ? (
+      {isLoading ? (
+        <div className="h-8 w-20 bg-muted/60 animate-pulse rounded-xl" />
+      ) : isLoggedIn ? (
         <Link
           href={APP_ROUTE}
           onClick={onCtaClick}

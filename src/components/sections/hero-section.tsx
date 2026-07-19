@@ -14,6 +14,7 @@ export function HeroSection() {
     inputUrl,
     setInputUrl,
     isShortening,
+    isLoading,
     handleShorten,
     handlePaste,
   } = useShortener();
@@ -39,7 +40,7 @@ export function HeroSection() {
         <ShortenerForm
           inputUrl={inputUrl}
           setInputUrl={setInputUrl}
-          isShortening={isShortening}
+          isShortening={isShortening || isLoading}
           onSubmit={handleShorten}
           onPaste={handlePaste}
         />
