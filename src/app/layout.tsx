@@ -4,6 +4,8 @@ import "./globals.css";
 import { NavBar } from "@/components/shared/nav-bar";
 import { navbarData } from "@/data/navbar-data";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AuthProvider } from "@/lib/auth-context";
+import { BetaBanner } from "@/components/shared/beta-banner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -142,8 +144,11 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-250">
         <ThemeProvider>
-          <NavBar items={navbarData} />
-          {children}
+          <AuthProvider>
+            <NavBar items={navbarData} />
+            {children}
+            <BetaBanner />
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>

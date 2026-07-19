@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-provider";
+import { useAuth } from "@/lib/auth-context";
 
 interface NavControlsProps {
   isOpen: boolean;
@@ -19,7 +20,7 @@ export function NavControls({
   const REGISTER_ROUTE = "https://auth.chhoto.tech/register";
   const APP_ROUTE = "https://app.chhoto.tech/dashboard";
 
-  const isLoggedIn = false;
+  const { isLoggedIn, isLoading } = useAuth();
   return (
     <div className="flex items-center gap-3">
       <ThemeToggle />
