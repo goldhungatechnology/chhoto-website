@@ -8,7 +8,6 @@ interface ShortenerFormProps {
   setInputUrl: (url: string) => void;
   isShortening: boolean;
   onSubmit: (e: React.FormEvent) => void;
-  onPaste: (e: React.ClipboardEvent<HTMLInputElement>) => void;
 }
 
 export function ShortenerForm({
@@ -16,7 +15,6 @@ export function ShortenerForm({
   setInputUrl,
   isShortening,
   onSubmit,
-  onPaste,
 }: ShortenerFormProps) {
   return (
     <form onSubmit={onSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -30,7 +28,6 @@ export function ShortenerForm({
           placeholder="Paste your long link here..."
           value={inputUrl}
           onChange={(e) => setInputUrl(e.target.value)}
-          onPaste={onPaste}
           className="w-full pl-11 pr-4 py-3.5 bg-background/50 border border-border focus:border-primary/50 focus:ring-2 focus:ring-primary/10 rounded-2xl outline-none text-sm transition-all"
           required
         />

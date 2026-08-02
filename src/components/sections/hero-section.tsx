@@ -1,23 +1,13 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { HeroBanner } from "./hero/hero-banner";
 import { ShortenerForm } from "./hero/shortener-form";
 import { useShortener } from "./hero/use-shortener";
 
-// Optional: Import LinkList if we need to enable simulated link manager in the future
-// import { LinkList } from "./hero/link-list";
-
 export function HeroSection() {
-  const {
-    inputUrl,
-    setInputUrl,
-    isShortening,
-    isLoading,
-    handleShorten,
-    handlePaste,
-  } = useShortener();
+  const { inputUrl, setInputUrl, isShortening, isLoading, handleShorten } =
+    useShortener();
 
   return (
     <section
@@ -42,7 +32,7 @@ export function HeroSection() {
           setInputUrl={setInputUrl}
           isShortening={isShortening || isLoading}
           onSubmit={handleShorten}
-          onPaste={handlePaste}
+          // onPaste={handlePaste}
         />
       </motion.div>
     </section>
